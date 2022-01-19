@@ -38,17 +38,15 @@ asm_main:
     call read_A
     call read_B
 
-    push dword [col_B]
-    push dword [row_B]
+    push dword [col_A]
     push dword [row_A]
     push B
     push A
-    call multiply_matrix
+    call swap_matrix
 
-    push dword [col_B]
-    push dword [row_A]
-    push C
-    call print_matrix
+    call print_A
+
+    call print_B
 
     popa
     leave
