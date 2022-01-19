@@ -2,3 +2,4 @@
 %include "./modules/output.inc"
 %include "./modules/multiply.inc"
 %include "./modules/swap.inc"
+%include "./modules/sum.inc"

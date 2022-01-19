@@ -1,14 +1,19 @@
-; void swap(int[][] A, int[][] B, int row, int col) 
-%define SWAP_ROW [ebp + 20]
-%define SWAP_COL [ebp + 16]
-swap_matrix:
+; void sum(int[][] A, int[][] B, int row, int col) 
+%define SUM_ROW [ebp + 20]
+%define SUM_COL [ebp + 16]
+sum_matrix:
     push ebp
     mov ebp, esp
 
+    mov ecx, SUM_ROW
+    mov [row_C], ecx
+    mov ecx, SUM_COL
+    mov [col_C], ecx
+
     mov esi, 0
-swap_loop1:
+sum_loop1:
     mov edi, 0
-swap_loop2:
+sum_loop2:
 
     mov ebx, A_MATRIX
     mov eax, SWAP_COL
@@ -20,27 +25,22 @@ swap_loop2:
     mov eax, SWAP_COL
     mul esi
     add eax, edi
-    mov edx, [ebx + 4 * eax]
-    mov [var1], edx
+    add ecx, [ebx + 4 * eax]
 
-
-    mov [ebx + 4 * eax], ecx
-
-    mov ebx, A_MATRIX
+    mov ebx, C
     mov eax, SWAP_COL
     mul esi
     add eax, edi
-    mov edx, [var1]
-    mov [ebx + 4 * eax], edx
+    mov [ebx + 4 * eax], ecx
 
     
     inc edi
     cmp edi, SWAP_COL
-    jl swap_loop2
+    jl sum_loop2
 
     inc esi
     cmp esi, SWAP_ROW
-    jl swap_loop1
+    jl sum_loop1
 
 
 

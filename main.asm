@@ -7,6 +7,8 @@ row_A: dd 0
 col_A: dd 0
 row_B: dd 0
 col_B: dd 0
+row_C: dd 0
+col_C: dd 0
 ; Messages
 row_msg: db "Enter row size = ", 0
 col_msg: db "Enter column size = ", 0
@@ -42,11 +44,12 @@ asm_main:
     push dword [row_A]
     push B
     push A
-    call swap_matrix
+    call sum_matrix
 
-    call print_A
-
-    call print_B
+    push dword [col_C]
+    push dword [row_C]
+    push C
+    call print_matrix
 
     popa
     leave
