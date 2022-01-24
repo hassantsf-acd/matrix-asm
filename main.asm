@@ -37,7 +37,6 @@ asm_main:
     call read_A
     call read_B
 
-    call B_B_multiply_A
 
     ; mov eax, ecx
     ; call print_int
