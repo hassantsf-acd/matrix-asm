@@ -61,3 +61,19 @@ assign_A_from_B:
     push A
     call assign_matrix
     ret
+
+assign_C_to_A:
+    push dword [col_C]
+    push dword [row_C]
+    push C
+    push A
+    call assign_matrix
+    ret
+
+assign_C_to_B:
+    push dword [col_C]
+    push dword [row_C]
+    push C
+    push B
+    call assign_matrix
+    ret

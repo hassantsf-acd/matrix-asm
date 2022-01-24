@@ -1,3 +1,6 @@
+%define ROW1 [ebp+16]
+%define ROW2 [ebp+20]
+%define COL2 [ebp+24]
 ; void multiply(int[][] A, int[][] B, int row1, int row2, int col2)
 multiply_matrix:
     push ebp
@@ -52,8 +55,52 @@ multiply_loop3:
     cmp esi, ROW1
     jl multiply_loop1
 
-
+    mov edx, ROW1
+    mov [row_C], edx
+    mov edx, ROW2
+    mov [col_C], edx
 
     mov esp, ebp
     pop ebp
     ret 20
+
+A_A_multiply_B:
+    push dword [col_B]
+    push dword [row_B]
+    push dword [row_A]
+    push B
+    push A
+    call multiply_matrix
+    call assign_C_to_A
+    ret
+
+B_A_multiply_B:
+    push dword [col_B]
+    push dword [row_B]
+    push dword [row_A]
+    push B
+    push A
+    call multiply_matrix
+
+    call assign_C_to_B
+    ret
+
+A_B_multiply_A:
+    push dword [col_A]
+    push dword [row_A]
+    push dword [row_B]
+    push A
+    push B
+    call multiply_matrix
+    call assign_C_to_A
+    ret
+
+B_B_multiply_A:
+    push dword [col_A]
+    push dword [row_A]
+    push dword [row_B]
+    push A
+    push B
+    call multiply_matrix
+    call assign_C_to_B
+    ret

@@ -1,5 +1,5 @@
 %include "./modules/input.inc"
 %include "./modules/output.inc"
+ %include "./modules/assign.inc"
 %include "./modules/multiply.inc"
  %include "./modules/swap.inc"
- %include "./modules/assign.inc"

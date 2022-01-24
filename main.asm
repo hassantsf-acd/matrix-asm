@@ -26,9 +26,6 @@ var2: dd 0
 
 %define A_MATRIX [ebp+8]
 %define B_MATRIX [ebp+12]
-%define ROW1 [ebp+16]
-%define ROW2 [ebp+20]
-%define COL2 [ebp+24]
 
 segment .text
 global asm_main
@@ -40,16 +37,18 @@ asm_main:
     call read_A
     call read_B
 
-    push dword [col_A]
-    push dword [row_A]
-    push B
-    push A
-    call sum_matrix
+    call B_B_multiply_A
 
-    push dword [col_C]
-    push dword [row_C]
-    push C
-    call print_matrix
+    ; mov eax, ecx
+    ; call print_int
+    ; call print_nl
+    ; push dword [col_C]
+    ; push dword [row_C]
+    ; push C
+    ; call print_matrix
+
+    call print_A
+    call print_B
 
     popa
     leave
