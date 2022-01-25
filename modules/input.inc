@@ -1,11 +1,24 @@
 read_A:
-    mov eax, A_msg
-    call print_string
-
     push col_A
     push row_A
     call read_row_col
 
+
+    cmp dword [row_A], 0
+    jg end_read_A_if_col
+    mov eax, negative_dimension_msg
+    call print_string
+    ret
+end_read_A_if_row:
+    cmp dword [col_A], 0
+    jg end_read_A_if_col
+    mov eax, negative_dimension_msg
+    call print_string
+    ret
+end_read_A_if_col:
+
+    mov eax, A_msg
+    call print_string
     push dword [col_A]
     push dword [row_A]
     push A
@@ -13,12 +26,26 @@ read_A:
     ret
 
 read_B:
-    mov eax, B_msg
-    call print_string
-
     push col_B
     push row_B
     call read_row_col
+
+    cmp dword [row_B], 0
+    jg end_read_B_if_col
+    mov eax, negative_dimension_msg
+    call print_string
+    ret
+end_read_B_if_row:
+    cmp dword [col_B], 0
+    jg end_read_B_if_col
+    mov eax, negative_dimension_msg
+    call print_string
+    ret
+end_read_B_if_col:
+
+    mov eax, B_msg
+    call print_string
+
 
     push dword [col_B]
     push dword [row_B]
@@ -64,13 +91,27 @@ read_row_col:
     mov eax, row_msg
     call print_string
     call read_int
+    cmp eax, 0
+    jg end_if1
+    mov eax, 0
+end_if1:
     mov [ecx], eax
 
     mov ecx, [ebp + 12]
     mov eax, col_msg
     call print_string
     call read_int
+
+    cmp eax, 0
+    jg end_if2
+    mov eax, 0
+end_if2:
     mov [ecx], eax
+
+    mov eax, [row_A]
+    call print_int
+    call print_nl
+
 
     mov esp, ebp
     pop ebp
