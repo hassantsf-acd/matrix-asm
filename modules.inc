@@ -3,3 +3,4 @@
  %include "./modules/assign.inc"
 %include "./modules/multiply.inc"
  %include "./modules/swap.inc"
+ %include "./modules/menu.inc"

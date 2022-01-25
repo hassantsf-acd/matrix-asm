@@ -9,11 +9,7 @@ row_B: dd 0
 col_B: dd 0
 row_C: dd 0
 col_C: dd 0
-; Messages
-row_msg: db "Enter row size = ", 0
-col_msg: db "Enter column size = ", 0
-A_msg: db "Matrix A:", 10, 0
-B_msg: db "Matrix B:", 10, 0
+%include "modules/messages.inc"
 ; Helper Variables
 sum: dd 0
 k: dd 0
@@ -34,20 +30,7 @@ asm_main:
     enter 0, 0
     pusha
 
-    call read_A
-    call read_B
-
-
-    ; mov eax, ecx
-    ; call print_int
-    ; call print_nl
-    ; push dword [col_C]
-    ; push dword [row_C]
-    ; push C
-    ; call print_matrix
-
-    call print_A
-    call print_B
+    call menu
 
     popa
     leave
