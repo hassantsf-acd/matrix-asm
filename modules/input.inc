@@ -16,6 +16,7 @@ end_read_A_if_row:
     call print_string
     ret
 end_read_A_if_col:
+    mov dword [valid_A], 1
 
     mov eax, A_msg
     call print_string
@@ -42,6 +43,7 @@ end_read_B_if_row:
     call print_string
     ret
 end_read_B_if_col:
+    mov dword [valid_B], 1
 
     mov eax, B_msg
     call print_string

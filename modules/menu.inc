@@ -26,6 +26,8 @@ menu:
     mov eax, exit_menu_msg
     call print_string
     call read_int
+    call print_nl
+    call print_nl
     cmp eax, 12
     je end_menu
 
@@ -41,17 +43,45 @@ end_case1:
     jmp menu_loop
 end_case2:
 
+    cmp dword [valid_A], 0
+    jne end_print_if_A
+    mov eax, init_msg
+    call print_string
+    jmp menu_loop
+end_print_if_A:
+
     cmp eax, 3
     jne end_case3
     call case3
     jmp menu_loop
 end_case3:
 
+    cmp dword [valid_B], 0
+    jne end_print_if_B
+    mov eax, init_msg
+    call print_string
+    jmp menu_loop
+end_print_if_B:
+
     cmp eax, 4
     jne end_case4
     call case4
     jmp menu_loop
 end_case4:
+
+    cmp dword [valid_A], 0
+    jne end_init_if_A
+    mov eax, init_msg
+    call print_string
+    jmp menu_loop
+end_init_if_A:
+    cmp dword [valid_B], 0
+    jne end_init_if_B
+    mov eax, init_msg
+    call print_string
+    jmp menu_loop
+end_init_if_B:
+
 
     cmp eax, 5
     jne end_case5
@@ -111,37 +141,37 @@ case2:
     ret
 
 case3:
-    call A_A_multiply_B
-    ret
-
-case4:
-    call B_A_multiply_B
-    ret
-
-case5:
-    call A_B_multiply_A
-    ret
-
-case6:
-    call B_B_multiply_A
-    ret
-
-case7:
-    call swap_matrix
-    ret
-
-case8:
-    call assign_A_from_B
-    ret
-
-case9:
-    call assign_B_from_A
-    ret
-
-case10:
     call print_A
     ret
 
-case11:
+case4:
     call print_B
+    ret
+
+case5:
+    call A_A_multiply_B
+    ret
+
+case6:
+    call B_A_multiply_B
+    ret
+
+case7:
+    call A_B_multiply_A
+    ret
+
+case8:
+    call B_B_multiply_A
+    ret
+
+case9:
+    call swap_matrix
+    ret
+
+case10:
+    call assign_A_from_B
+    ret
+
+case11:
+    call assign_B_from_A
     ret

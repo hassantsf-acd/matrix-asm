@@ -9,6 +9,8 @@ row_B: dd 0
 col_B: dd 0
 row_C: dd 0
 col_C: dd 0
+valid_A: dd 0
+valid_B: dd 0
 %include "modules/messages.inc"
 ; Helper Variables
 sum: dd 0

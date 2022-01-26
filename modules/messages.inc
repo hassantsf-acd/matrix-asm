@@ -2,15 +2,15 @@
 choose_optoion_msg: db "Please choose options below:", 10, 0
 option1_msg: db "1) Read A", 10, 0
 option2_msg: db "2) Read B", 10, 0
-option3_msg: db "3) A = A * B", 10, 0
-option4_msg: db "4) B = A * B", 10, 0
-option5_msg: db "5) A = B * A", 10, 0
-option6_msg: db "6) B = B * A", 10, 0
-option7_msg: db "7) Swap(A, B)", 10, 0
-option8_msg: db "8) A = B", 10, 0
-option9_msg: db "9) B = A", 10, 0
-option10_msg: db "10) Print A", 10, 0
-option11_msg: db "11) Print B", 10, 0
+option3_msg: db "3) Print A", 10, 0
+option4_msg: db "4) Print B", 10, 0
+option5_msg: db "5) A = A * B", 10, 0
+option6_msg: db "6) B = A * B", 10, 0
+option7_msg: db "7) A = B * A", 10, 0
+option8_msg: db "8) B = B * A", 10, 0
+option9_msg: db "9) Swap(A, B)", 10, 0
+option10_msg: db "10) A = B", 10, 0
+option11_msg: db "11) B = A", 10, 0
 exit_menu_msg: db "12) Exit", 10, 0
 
 ; Input Messages
@@ -22,3 +22,4 @@ B_msg: db "Matrix B:", 10, 0
 
 ; Errors
 negative_dimension_msg: db "Invalid dimension for matrix", 10, 0
+init_msg: db "Following matrix hasn't been initialized!", 10, 0
