@@ -65,6 +65,14 @@ multiply_loop3:
     ret 20
 
 A_A_multiply_B:
+    mov edx, [col_A]
+    cmp edx, [row_B]
+    je end_A_A_multiply_B_if
+    mov eax, multiply_error_msg
+    call print_string
+    ret
+
+end_A_A_multiply_B_if:
     push dword [col_B]
     push dword [row_B]
     push dword [row_A]
@@ -75,6 +83,14 @@ A_A_multiply_B:
     ret
 
 B_A_multiply_B:
+    mov edx, [col_A]
+    cmp edx, [row_B]
+    je end_B_A_multiply_B_if
+    mov eax, multiply_error_msg
+    call print_string
+    ret
+
+end_B_A_multiply_B_if:
     push dword [col_B]
     push dword [row_B]
     push dword [row_A]
@@ -86,6 +102,14 @@ B_A_multiply_B:
     ret
 
 A_B_multiply_A:
+    mov edx, [col_B]
+    cmp edx, [row_A]
+    je end_A_B_multiply_A_if
+    mov eax, multiply_error_msg
+    call print_string
+    ret
+
+end_A_B_multiply_A_if:
     push dword [col_A]
     push dword [row_A]
     push dword [row_B]
@@ -96,6 +120,14 @@ A_B_multiply_A:
     ret
 
 B_B_multiply_A:
+    mov edx, [col_B]
+    cmp edx, [row_A]
+    je end_B_B_multiply_A_if
+    mov eax, multiply_error_msg
+    call print_string
+    ret
+
+end_B_B_multiply_A_if:
     push dword [col_A]
     push dword [row_A]
     push dword [row_B]

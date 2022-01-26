@@ -23,3 +23,4 @@ B_msg: db "Matrix B:", 10, 0
 ; Errors
 negative_dimension_msg: db "Invalid dimension for matrix", 10, 0
 init_msg: db "Following matrix hasn't been initialized!", 10, 0
+multiply_error_msg: db "Can't complete mutiplication operation!", 10, 0
